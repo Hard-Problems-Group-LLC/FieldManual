@@ -1,2 +1,3 @@
 # FieldManual
-Worker-agent consumable lightweight project management techniques, procedures, and standards for working with structured and unstructured data.
+Lightweight procedures, standards, and workflow guidance for non-coding worker agents managing structured and unstructured data.
+
