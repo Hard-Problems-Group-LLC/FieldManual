@@ -4,7 +4,7 @@ Last updated: 2026-04-04
 
 ## Purpose
 
-- Record candidate pieces from `~/codebase/HPG/actual/TheKnowledge` that are
+- Record candidate pieces from an upstream `TheKnowledge` checkout that are
   worth importing or adapting into this repository.
 - Separate lightweight process assets from heavyweight development-platform
   machinery.
@@ -68,19 +68,3 @@ Last updated: 2026-04-04
 1. Add repo-specific specification docs for schema, wiki links, document
    conventions, and temporal uncertainty.
 1. Only then consider a tiny validator layer for knowledgebase consistency.
-*** Add File: /home/mheck/codebase/HPG/actual/mindscraper/FieldManual/templates/project-management/README.md
-# Project Management
-
-This directory holds the lightweight workflow state for the repository.
-
-## Main Pages
-
-- [Backlog]
-- [Tasks In Progress]
-- [Completed Tasks]
-- [Deferred Tasks]
-- [Bugs]
-- [Open Questions]
-- [Decision Log]
-- [Proposals]
-- [Project State]
