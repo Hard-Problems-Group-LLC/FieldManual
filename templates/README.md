@@ -1,10 +1,8 @@
 # FieldManual Templates
 
-These files are starter material for a consuming repository's lightweight
-process layer for non-coding worker agents and their human collaborators.
-
-They are intended primarily for data-centric repositories and private knowledge
-stores rather than as a general software-engineering operating system.
+These are create-only skeletons for projects that consume FieldManual. The
+installed copies become project-owned records; the copies here remain clean
+starters.
 
 Install them into the repository root with:
 
@@ -12,16 +10,24 @@ Install them into the repository root with:
 python FieldManual/bootstrap.py
 ```
 
-Use `--dry-run` to preview and `--force` to overwrite existing files.
-Use `--template AGENTS.md --force` when you only want to refresh the managed
-`AGENTS.md` wrapper without rewriting other installed files.
+When FieldManual is nested somewhere other than `FieldManual/`, invoke the
+script at its actual path. Use `--project-root` for the first installation
+when the project root cannot be inferred safely, and use `--dry-run` to
+preview changes.
 
-The installed copies become the repository's live records. Keep templates here
-as reusable starters and evolve the live files in the project root as the
-project proceeds.
+The layout and installation policies are declared in
+`../FieldManual-layout.toml`. The installer:
 
-`FieldManual/bootstrap.py` also manages `AGENTS.md` in the repository root.
-It uses `AGENTS-header.md` and `AGENTS-footer.md` to wrap project-specific
-content. Before rewriting `AGENTS.md`, it removes any existing
-FieldManual-managed header and footer blocks so rerunning the bootstrap does
-not duplicate them.
+- creates required directories;
+- creates missing skeleton files without replacing live records;
+- creates the tracked and local FieldManual configuration files;
+- refreshes only the marked FieldManual sections of `AGENTS.md`; and
+- ensures the required `.gitignore` entries while preserving other content.
+
+The installed `ECRs/` skeleton includes a ready FieldManual target and a
+non-live `_target-template/` that projects copy for any other target.
+Existing ECR files are project-owned and remain create-only on framework
+upgrades; reconcile older skeletons deliberately instead of expecting a
+bootstrap overwrite.
+
+See `../docs/bootstrap.md` for the complete contract.

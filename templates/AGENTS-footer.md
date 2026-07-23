@@ -3,15 +3,21 @@
 
 ## Field Manual Managed Guidance
 
-- Treat `data/` as the live knowledge store.
-- Use `project-management/` as the lightweight workflow state for backlog,
-  in-progress work, completed work, proposals, deferred work, open questions,
-  and decision logging.
-- Keep durable operating rules in the repository root `AGENTS.md`.
-- Keep durable schema rules in `docs/specifications/`.
-- Preserve external verification context by retaining useful reference links on
-  the relevant wiki pages and structured reference records when lookup is used
-  to confirm names, identities, or facts.
-- Keep the managed wrapper light. Put project-specific instructions in the body
-  of `AGENTS.md`, not in this footer unless they truly belong to Field Manual.
+- Treat the configured project root as the boundary for project-owned files,
+  local state, and project-management records.
+- Treat the configured framework root as read-only guidance when it is a
+  submodule. Do not write project state into the FieldManual subtree.
+- Use `project-management/` for the backlog, active and completed work, bugs,
+  proposals, reviews, decisions, open questions, and bounded human requests.
+- Keep durable behavior and interface contracts in `docs/specifications/`.
+- Keep checkout-local state and policy inputs under `.local/`; never commit
+  `.local/FieldManual-localconfig.toml`.
+- Put cross-project change requests under `ECRs/<target-project>/`. Use the
+  ready `ECRs/FieldManual/` tree for FieldManual requests and copy
+  `ECRs/_target-template/` for another target.
+- FieldManual supplies prose standards, not language-specific verification
+  programs. Use the consuming project's declared build, test, lint, security,
+  and release commands.
+- Project-specific instructions may specialize FieldManual defaults. Record
+  intentional exceptions explicitly instead of allowing silent drift.
 <!-- FIELDMANUAL_MANAGED_FOOTER_END -->

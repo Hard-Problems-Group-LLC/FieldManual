@@ -1,0 +1,112 @@
+# Declarative filesystem contract consumed by bootstrap.py.
+#
+# This file intentionally uses FieldManual's documented, dependency-free TOML
+# subset: top-level keys with integers, strings, and arrays of strings.
+FieldManual_LayoutVersion = 1
+
+required_directories = [
+  ".local",
+  "docs",
+  "docs/specifications",
+  "project-management",
+  "project-management/bugs",
+  "project-management/bugs/open",
+  "project-management/bugs/in-progress",
+  "project-management/bugs/closed",
+  "project-management/proposals",
+  "project-management/proposals/approved",
+  "project-management/proposals/deferred",
+  "project-management/proposals/rejected",
+  "project-management/proposals/under-review",
+  "project-management/reviews",
+  "project-management/reviews/packets",
+  "project-management/reviews/findings",
+  "project-management/reviews/decisions",
+  "project-management/state",
+  "ECRs",
+  "ECRs/_target-template",
+  "ECRs/_target-template/open",
+  "ECRs/_target-template/in-progress",
+  "ECRs/_target-template/closed",
+  "ECRs/FieldManual",
+  "ECRs/FieldManual/open",
+  "ECRs/FieldManual/in-progress",
+  "ECRs/FieldManual/closed",
+]
+
+private_directories = [
+  ".local",
+]
+
+# Only these project-owned subtrees may receive create-only skeleton files.
+# Configuration, AGENTS, and .gitignore use their dedicated declarations.
+template_roots = [
+  "docs",
+  "project-management",
+  "ECRs",
+]
+
+# Every create-only skeleton is explicit. The installer never scans a template
+# tree recursively, so ignored caches and undeclared framework files cannot
+# leak into a consuming project.
+template_files = [
+  "docs/README.md",
+  "docs/specifications/README.md",
+  "project-management/README.md",
+  "project-management/ai-human-requests.md",
+  "project-management/backlog.md",
+  "project-management/completed-tasks.md",
+  "project-management/decision-log.md",
+  "project-management/deferred.md",
+  "project-management/development-roadmap.md",
+  "project-management/open-questions.md",
+  "project-management/tasks-in-progress.md",
+  "project-management/bugs/README.md",
+  "project-management/bugs/bug-template.md",
+  "project-management/bugs/bugs-in-progress.md",
+  "project-management/bugs/known-bugs.md",
+  "project-management/bugs/resolved-bugs.md",
+  "project-management/bugs/open/README.md",
+  "project-management/bugs/in-progress/README.md",
+  "project-management/bugs/closed/README.md",
+  "project-management/proposals/README.md",
+  "project-management/proposals/proposal-template.md",
+  "project-management/proposals/approved/README.md",
+  "project-management/proposals/deferred/README.md",
+  "project-management/proposals/rejected/README.md",
+  "project-management/proposals/under-review/README.md",
+  "project-management/reviews/README.md",
+  "project-management/reviews/review-packet-template.md",
+  "project-management/reviews/finding-template.md",
+  "project-management/reviews/decision-template.md",
+  "project-management/reviews/packets/README.md",
+  "project-management/reviews/findings/README.md",
+  "project-management/reviews/decisions/README.md",
+  "project-management/state/README.md",
+  "project-management/state/pending-commit-changes.md",
+  "ECRs/README.md",
+  "ECRs/_target-template/README.md",
+  "ECRs/_target-template/request-template.md",
+  "ECRs/_target-template/open/README.md",
+  "ECRs/_target-template/in-progress/README.md",
+  "ECRs/_target-template/closed/README.md",
+  "ECRs/FieldManual/README.md",
+  "ECRs/FieldManual/request-template.md",
+  "ECRs/FieldManual/open/README.md",
+  "ECRs/FieldManual/in-progress/README.md",
+  "ECRs/FieldManual/closed/README.md",
+]
+
+project_config_template = "FieldManual-config.toml"
+local_config_template = "FieldManual-localconfig.toml"
+project_config_path = "FieldManual-config.toml"
+local_config_path = ".local/FieldManual-localconfig.toml"
+
+agents_header_template = "AGENTS-header.md"
+agents_footer_template = "AGENTS-footer.md"
+agents_path = "AGENTS.md"
+
+gitignore_path = ".gitignore"
+gitignore_entries = [
+  ".local/",
+]

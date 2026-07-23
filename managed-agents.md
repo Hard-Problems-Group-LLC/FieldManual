@@ -1,16 +1,18 @@
-# Field Manual Managed AGENTS Sections
+# FieldManual Managed AGENTS Sections
 
 ## Purpose
 
-FieldManual can manage a lightweight wrapper around a consuming repository's
-root `AGENTS.md` file when that repository wants FieldManual-based guidance for
-non-coding worker agents and their human collaborators.
+FieldManual manages a small wrapper around a consuming repository's root
+`AGENTS.md`. The wrapper directs collaborators to the configured framework
+and project roots while preserving project-specific instructions.
 
 ## How It Works
 
-- `FieldManual/templates/AGENTS-header.md` provides the managed header block.
-- `FieldManual/templates/AGENTS-footer.md` provides the managed footer block.
-- `python FieldManual/bootstrap.py` rewrites `AGENTS.md` by:
+- `<FieldManual_FrameworkRoot>/templates/AGENTS-header.md` provides the
+  managed header block.
+- `<FieldManual_FrameworkRoot>/templates/AGENTS-footer.md` provides the
+  managed footer block.
+- `bootstrap.py` refreshes `AGENTS.md` by:
   - removing any existing FieldManual-managed header and footer blocks
   - preserving any project-specific body content between them
   - writing the refreshed managed wrapper around that body
@@ -19,10 +21,12 @@ non-coding worker agents and their human collaborators.
 
 - Keep the managed wrapper short and stable.
 - Put repository-specific instructions in the body of `AGENTS.md`.
-- Keep the managed sections oriented toward data-centric, non-coding workflows
-  unless the consuming repository explicitly broadens that scope.
-- Avoid baking heavy tooling or unrelated software-development rules into the
-  managed sections.
+- Resolve framework and project locations through the tracked configuration
+  and optional local override instead of assuming a submodule path.
+- Point to canonical standards instead of duplicating them in the wrapper.
+- Load language, technology, technique, and knack guidance only when it
+  applies.
+- Keep executable verification commands project-owned.
 
 ## Markers
 
@@ -35,8 +39,9 @@ The managed sections are delimited by:
 
 ## Editing Guidance
 
-- Edit the wrapper by changing the templates in `FieldManual/templates/`.
+- Edit the wrapper by changing `templates/` beneath the configured
+  `FieldManual_FrameworkRoot`.
 - Edit project-specific instructions by changing the body of the root
   `AGENTS.md`.
-- Re-run `python FieldManual/bootstrap.py --template AGENTS.md --force` after
-  changing the managed templates when you want to refresh only the root file.
+- Rerun the configured FieldManual bootstrap after managed templates change.
+  The installer changes only the marked sections and preserves the body.

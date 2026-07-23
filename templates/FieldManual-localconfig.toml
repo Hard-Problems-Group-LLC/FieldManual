@@ -1,0 +1,8 @@
+# Checkout-local FieldManual root overrides.
+#
+# This file is ignored through .local/. Relative paths still resolve from the
+# project root, not from this file's directory. Replace either path with an
+# absolute local path when this checkout deliberately needs one.
+FieldManual_ConfigVersion = 1
+FieldManual_FrameworkRoot = "{{FIELDMANUAL_ROOT_TOML}}"
+FieldManual_ProjectRoot = "."
