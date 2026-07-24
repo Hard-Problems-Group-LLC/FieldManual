@@ -6,6 +6,24 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- FM-TASK-008 — Established `.local/tmp/` as the default project-local
+  temporary workspace. Owner: FieldManual maintainers; execution by an AI
+  assistant under repository-operator direction. Created and started:
+  2026-07-23T19:22:43-07:00. Completed:
+  2026-07-23T19:29:32-07:00.
+  - Outcome: made the entire `.local/` tree a mandatory effective ignore;
+    added unique-run, ownership, confinement, retention, sensitivity, and
+    cleanup guidance; propagated the rule through managed AGENTS instructions
+    and the core test standard; and declared `.local/tmp/` as a private
+    bootstrap directory.
+  - Validation: compiled the bootstrap with Python 3.9 and the system Python;
+    completed a clean-consumer dry run, installation, and idempotent rerun;
+    verified both local directories at mode `0700`, the effective `.local/`
+    ignore, exact managed-footer parity, 271 local Markdown links, and clean
+    whitespace.
+  - Decisions: no new architecture decision required.
+  - Risk decisions: none.
+
 - FM-TASK-007 — Inventoried and deduplicated reusable knack material
   throughout `~/codebase`. Owner: FieldManual maintainers; execution by an AI
   assistant under repository-operator direction. Created: 2026-07-23.

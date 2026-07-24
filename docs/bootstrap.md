@@ -18,6 +18,11 @@ It does not run Git, access the network, install packages or runtimes, modify
 shell startup files, inspect or write a user home, install hooks, or execute
 project verification.
 
+The declared private directories include `.local/` and `.local/tmp/`. The
+latter is the default parent for uniquely named, disposable test and tool
+workspaces owned by the consuming project. The bootstrap creates these
+directories with private permissions where the platform supports them.
+
 ## Invocation
 
 Typical consuming project:
@@ -113,7 +118,8 @@ duplicated, or misordered markers are hard failures.
 
 If every required entry already exists as an active `.gitignore` line, the
 bootstrap changes nothing. This allows another reviewed managed block or
-project-authored policy to own `.local/`.
+project-authored policy to own `.local/`. The rule remains mandatory: the
+entire `.local/` tree, including `.local/tmp/`, must be ignored.
 
 When an entry is missing, the bootstrap creates or refreshes one block:
 

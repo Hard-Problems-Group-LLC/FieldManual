@@ -19,12 +19,51 @@ including:
 - local configuration overrides;
 - operator notes intended for local agents;
 - caches and transient tool state;
+- disposable test workspaces and temporary artifacts under `.local/tmp/`;
 - local wrappers or environments; and
 - credentials or private endpoints when a project explicitly permits local
   file storage for them.
 
-The entire `.local/` directory should be excluded from version control.
-Projects should create it only when needed.
+The entire `.local/` directory must be excluded from version control. A
+project adopting FieldManual must keep `.local/` as an effective `.gitignore`
+rule even when another tool owns the matching ignore block. Ignored state is
+still subject to the project's security, retention, and cleanup policy.
+
+## Project-Local Temporary Workspaces
+
+By default, tools, tests, developers, and AI assistants should allocate
+disposable project work beneath:
+
+```text
+$(PROJECTROOT)/.local/tmp/
+```
+
+Use a uniquely named child for each tool, task, or test run. Keeping temporary
+work inside the configured, ignored project boundary makes ownership obvious,
+avoids dirty worktrees, and reduces unnecessary permission or cleanup
+approval prompts caused by using unrelated filesystem locations. In
+consuming-project mode, use the consuming project's `.local/tmp/`, never a
+`.local/` directory inside the FieldManual submodule.
+
+Treat `.local/tmp/` as disposable, not durable storage:
+
+- publish required reports or retained artifacts to a documented project
+  location before removing the run directory;
+- retain a failed run only when its diagnostic value warrants the local disk
+  and sensitivity cost;
+- use restrictive permissions when data, credentials, endpoints, or captured
+  sessions could be sensitive;
+- resolve and verify the cleanup target as a descendant of `.local/tmp/`;
+- remove only a run directory the current operation created or explicitly
+  acquired; and
+- never recursively remove `.local/` or `.local/tmp/` itself based only on an
+  environment variable, unchecked string, glob, or ambient working directory.
+
+Use an operating-system or runner-provided temporary directory when a test
+specifically requires system temporary-directory semantics, cross-user
+access, a different filesystem, or an ephemeral CI facility. Apply the same
+unique-run, ownership, confinement, sensitivity, and cleanup rules there, and
+document the exception when it affects reproducibility.
 
 ## Override Rules
 

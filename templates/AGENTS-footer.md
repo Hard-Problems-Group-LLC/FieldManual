@@ -10,8 +10,11 @@
 - Use `project-management/` for the backlog, active and completed work, bugs,
   proposals, reviews, decisions, open questions, and bounded human requests.
 - Keep durable behavior and interface contracts in `docs/specifications/`.
-- Keep checkout-local state and policy inputs under `.local/`; never commit
-  `.local/FieldManual-localconfig.toml`.
+- Keep checkout-local state and policy inputs under `.local/`, and keep the
+  entire `.local/` tree ignored by version control.
+- Put disposable test workspaces and temporary project artifacts in uniquely
+  named children of the project root's `.local/tmp/` by default. Clean up
+  only paths created or explicitly acquired by the current operation.
 - Put cross-project change requests under `ECRs/<target-project>/`. Use the
   ready `ECRs/FieldManual/` tree for FieldManual requests and copy
   `ECRs/_target-template/` for another target.

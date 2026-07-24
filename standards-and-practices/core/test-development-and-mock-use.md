@@ -12,6 +12,10 @@ details.
 - Cover representative success paths, boundary conditions, failure modes, and
   regressions.
 - Keep fixtures deterministic, minimal, and explicit about their purpose.
+- Put disposable test workspaces under the configured project root's
+  `.local/tmp/` by default, following
+  [Local Operator State](local-operator-state.md) for naming, cleanup,
+  security, and system-temporary-directory exceptions.
 - Prefer assertions about externally meaningful outcomes over incidental
   call counts or internal ordering.
 - Use the narrowest test level that proves the behavior, then retain

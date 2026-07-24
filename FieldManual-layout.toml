@@ -6,6 +6,7 @@ FieldManual_LayoutVersion = 1
 
 required_directories = [
   ".local",
+  ".local/tmp",
   "docs",
   "docs/specifications",
   "project-management",
@@ -36,6 +37,7 @@ required_directories = [
 
 private_directories = [
   ".local",
+  ".local/tmp",
 ]
 
 # Only these project-owned subtrees may receive create-only skeleton files.

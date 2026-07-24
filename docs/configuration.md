@@ -25,7 +25,10 @@ FieldManual_ProjectRoot = "."
 ```
 
 The local file is an override, not a tracked source of project policy.
-`.local/` must remain ignored by version control.
+`.local/` must remain ignored by version control. The bootstrap also creates
+`.local/tmp/` as the default private parent for disposable project-local test
+and tool workspaces; see
+[Local Operator State](../standards-and-practices/core/local-operator-state.md).
 
 ## Path Semantics
 
@@ -99,6 +102,7 @@ FieldManual's own configuration and layout files stay within this subset.
 declares:
 
 - every required directory;
+- `.local/` and `.local/tmp/` as private directories;
 - the allowed roots for create-only skeletons;
 - every create-only skeleton file;
 - the project and local configuration sources and destinations;
