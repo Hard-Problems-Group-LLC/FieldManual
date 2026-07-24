@@ -215,3 +215,17 @@ FieldManual content, deferred through an existing governed review, or
 excluded with a reason. The resulting library remains prose-first: no source
 project's verifier, environment manager, VM wrapper, browser harness, or
 automation server was added to FieldManual.
+
+## 2026-07-24 Follow-Up
+
+FM-TASK-009 completed the deliberately deferred target-specific review
+against Ubersight 0.1.0 at
+`1ec5d3ccb662f89f7b8c8b8cfd47349894094545`. FieldManual then added the
+[maintained Ubersight
+knack](../../knacks/software-engineering/development-observability/ubersight.knack.md)
+and filed an unsubmitted source-owned request to
+[specify and validate Ubersight's versioned status
+contracts](../../ECRs/ubersight/README.md),
+`FieldManual-ECR-2026-003`.
+The original deferred disposition remains the accurate result of the
+2026-07-23 broad import pass.

@@ -32,8 +32,8 @@ currency, and review guidance.
 - [`performance/`](performance/) — measurement and profiling practices
 - [`sandboxing/`](sandboxing/) — process-isolation and execution-boundary
   guidance
-- [`software-engineering/`](software-engineering/) — design and code-quality
-  techniques
+- [`software-engineering/`](software-engineering/) — design, code-quality,
+  development-observability, and reusable tool-integration techniques
 - [`UI/`](UI/) — terminal and browser interface engineering and automation
 - [`version-control/`](version-control/) — repository inspection, repair, and
   collaboration

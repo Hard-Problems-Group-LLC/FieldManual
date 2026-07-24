@@ -20,6 +20,8 @@ service, framework, or tool.
 - [`AmazingDNSHammer/`](AmazingDNSHammer/) — opt-in TUI automation hardening
 - [`BQMP-pirouette-utils/`](BQMP-pirouette-utils/) — Git history-purge
   guidance correction
+- [`ubersight/`](ubersight/) — versioned status-contract specification and
+  validation
 
 Lifecycle state and each request's transport log are authoritative. A record
 in `open/` may still be an unsubmitted draft.

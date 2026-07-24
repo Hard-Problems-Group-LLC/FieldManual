@@ -6,6 +6,31 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- FM-TASK-009 — Added maintained Ubersight development-observability
+  guidance and filed an applicable source-owned ECR. Owner: FieldManual
+  maintainers; execution by an AI assistant under repository-operator
+  direction. Created and started: 2026-07-24T00:48:02-07:00. Completed:
+  2026-07-24T01:11:17-07:00.
+  - Outcome: added a reusable Ubersight knack and discovery category; added
+    the complete `ECRs/ubersight/` lifecycle tree and
+    `FieldManual-ECR-2026-003` requesting packaged, discoverable, validated
+    status contracts; and recorded follow-ups to the earlier migration
+    assessments without changing their historical dispositions.
+  - Research: reviewed the clean authoritative Ubersight 0.1.0 checkout at
+    `1ec5d3ccb662f89f7b8c8b8cfd47349894094545`, its approved originating
+    proposal, source, tests, security and command documentation, and three
+    independently discovered producer-knack variants.
+  - Validation: three independent target-content reviews; exercised the
+    actual CLI status writer, main-status rendering, and background-job
+    loading against the reviewed revision; passed a bootstrap dry run, 282
+    local Markdown links, three unique and lifecycle-consistent ECRs,
+    whitespace, secret-signature, symlink, and oversized-file checks.
+  - Decisions: no new architecture decision required.
+  - Risk decisions: the new ECR remains explicitly unsubmitted. Current
+    permissive status parsing, phase-stack flag visibility, network and
+    operator-context observation, location-memory sensitivity, and runtime
+    context limits are documented rather than represented as solved.
+
 - FM-TASK-008 — Established `.local/tmp/` as the default project-local
   temporary workspace. Owner: FieldManual maintainers; execution by an AI
   assistant under repository-operator direction. Created and started:

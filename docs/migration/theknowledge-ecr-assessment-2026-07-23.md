@@ -103,3 +103,15 @@ other projects and for requests created by consuming projects. The ready
 `ECRs/FieldManual/` target serves consumers; `_target-template/` supplies the
 same structure for any other real target. No mdview or Ubersight ECR was filed
 during this assessment.
+
+## 2026-07-24 Follow-Up
+
+FM-TASK-009 later reviewed the authoritative Ubersight target and imported
+the previously requested standards-framework guidance as a maintained
+[Ubersight development-observability
+knack](../../knacks/software-engineering/development-observability/ubersight.knack.md).
+That separate target review also found new product-contract issues and
+created `FieldManual-ECR-2026-003`, tracked in the
+[Ubersight request index](../../ECRs/ubersight/README.md).
+The ECR is based on current Ubersight behavior, not a relabeling of the old
+standards-framework import records.
