@@ -6,6 +6,34 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- FM-TASK-007 — Inventoried and deduplicated reusable knack material
+  throughout `~/codebase`. Owner: FieldManual maintainers; execution by an AI
+  assistant under repository-operator direction. Created: 2026-07-23.
+  Started: 2026-07-23T17:01:26-07:00. Completed:
+  2026-07-23T17:39:37-07:00.
+  - Outcome: assessed 25 knack roots containing 605 regular files and 123
+    relative-path/content variants; added 17 maintained knack documents and
+    15 category indexes covering terminal UI and Turbo Vision design, TUI and
+    VM test automation, VirtualBox, Git history repair, complexity, browser
+    automation, GNOME and live sessions, and Codex app-server integration.
+  - Provenance: recorded exact source revisions, untracked-source status,
+    duplicate and subset variants, companion records, corrections, imports,
+    exclusions, and deferred Ubersight and license material in the codebase
+    knack assessment.
+  - ECRs: created two unsubmitted source-owned drafts for AmazingDNSHammer's
+    opt-in TUI automation concerns and BQMP-pirouette-utils' Git history-purge
+    errors while retaining corrected, actionable stock guidance.
+  - Validation: three independent content and integration reviews; reproduced
+    all inventory counts; checked 270 local Markdown links; verified all 17
+    new knacks at 744–1,679 words with current source-review dates; checked
+    VirtualBox 7.2.13 command syntax; compiled the installer with Python 3.9
+    and the system Python; completed a clean consumer dry run, installation,
+    and idempotent rerun; and passed ECR structure, UTF-8, newline, whitespace,
+    secret, project-leakage, symlink, binary, and repository-hygiene checks.
+  - Decisions: no new architecture decision required.
+  - Risk decisions: none. The outgoing ECRs remain explicitly unsubmitted;
+    Ubersight and license guidance remain governed deferred work.
+
 - FM-TASK-004 — Added a current, language-specific Go engineering profile.
   Owner: FieldManual maintainers; execution by an AI assistant under
   repository-operator direction. Created: 2026-07-23. Started:

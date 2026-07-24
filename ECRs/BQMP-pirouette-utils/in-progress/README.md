@@ -1,0 +1,10 @@
+# BQMP-pirouette-utils Requests In Progress
+
+Store acknowledged or actively handled BQMP-pirouette-utils ECRs here. Keep
+`Source lifecycle: In Progress`, preserve the submitted request text, and
+append the authoritative BQMP-pirouette-utils handling reference.
+
+Move a record to `../closed/` after recording a dated disposition and
+evidence. Target handling may end through acceptance, implementation,
+rejection, deferral, duplication, supersession, withdrawal, or a finding that
+no change is required.

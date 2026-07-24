@@ -139,3 +139,7 @@ ideas while intentionally excluding its Python environment and automation
 platform. The source review, dirty-worktree provenance, selected material,
 and exclusions are recorded in the
 [migration assessment](docs/migration/theknowledge-assessment-2026-07-23.md).
+The later repository-wide [knack
+assessment](docs/migration/codebase-knack-assessment-2026-07-23.md) records
+the deduplicated review of project-owned and submodule knack trees throughout
+the local codebase.

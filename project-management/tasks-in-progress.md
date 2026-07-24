@@ -6,4 +6,4 @@ owner, known blockers, and brief status notes.
 
 ## Active Work
 
-No tasks are currently in progress.
+No active tasks.

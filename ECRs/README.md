@@ -15,6 +15,15 @@ service, framework, or tool.
 - Keep incoming ECR payloads separate from this outgoing tree and map them
   into target-owned project-management records.
 
+## Live Target Trees
+
+- [`AmazingDNSHammer/`](AmazingDNSHammer/) — opt-in TUI automation hardening
+- [`BQMP-pirouette-utils/`](BQMP-pirouette-utils/) — Git history-purge
+  guidance correction
+
+Lifecycle state and each request's transport log are authoritative. A record
+in `open/` may still be an unsubmitted draft.
+
 Follow the configured FieldManual core standard
 `engineering-change-requests.md` for identity, revisions, authority,
 transport, deconfliction, and closure evidence.

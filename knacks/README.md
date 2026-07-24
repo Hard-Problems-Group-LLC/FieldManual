@@ -19,15 +19,29 @@ currency, and review guidance.
 
 ## Stock Areas
 
-- `auditing/` — evidence-oriented review, including software bills of
-  materials
-- `authentication/` — identity and authentication boundaries
-- `debugging/` — language-neutral debugging methods
-- `performance/` — measurement and profiling practices
-- `sandboxing/` — process-isolation and execution-boundary guidance
-- `UI/terminal/` — terminal protocols, emulators, libraries, and APIs
-- `knowledge-management/` — FieldManual's knowledge-management profile and
-  its specifications
+- [`AI/`](AI/) — integration boundaries for AI development systems
+- [`auditing/`](auditing/) — evidence-oriented review, including software
+  bills of materials
+- [`authentication/`](authentication/) — identity and authentication
+  boundaries
+- [`debugging/`](debugging/) — language-neutral debugging methods
+- [`desktop/`](desktop/) — graphical session selection, extension lifecycle,
+  and desktop integration
+- [`knowledge-management/`](knowledge-management/) — FieldManual's
+  knowledge-management profile and its specifications
+- [`performance/`](performance/) — measurement and profiling practices
+- [`sandboxing/`](sandboxing/) — process-isolation and execution-boundary
+  guidance
+- [`software-engineering/`](software-engineering/) — design and code-quality
+  techniques
+- [`UI/`](UI/) — terminal and browser interface engineering and automation
+- [`version-control/`](version-control/) — repository inspection, repair, and
+  collaboration
+- [`virtualization/`](virtualization/) — virtual-machine safety and control
+
+Start with the narrowest area that matches the task, then follow its local
+index. Load related knacks together when one describes a general boundary and
+another describes a specific product or API.
 
 ## Project-Owned Knacks
 
