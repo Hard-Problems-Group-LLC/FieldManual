@@ -6,6 +6,39 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- FM-TASK-010 — Added product-neutral staged-verification guidance for
+  multi-agent development workflows. Owner: FieldManual maintainers;
+  execution by an AI assistant under repository-operator direction. Created
+  and started: 2026-09-25T07:10:00-07:00. Completed: 2026-09-25T07:14:37-07:00.
+  - Outcome:
+    - added `knacks/AI/agent-orchestration/` with its index and
+      `staged-verification.knack.md`, which covers a fast gate that always
+      runs, a coded escalation rule, a deep adversarial review only on
+      escalation, and a ratchet that turns found defect classes into cheap
+      checks;
+    - widened the AI and top-level knack indexes to cover product-neutral
+      orchestration patterns.
+  - Research: derived from operator-directed practice in a consuming
+    project, generalized with no project names, paths or measurements
+    beyond one explicitly anecdotal illustration.
+  - Validation:
+    - two independent reviews: conventions and leakage, and accuracy and
+      references;
+    - every finding applied: anecdotal figures softened, the escalation
+      rule completed (gate error, unclear requirements, flake drift,
+      severity scale), American spelling, `Source review` label, reference
+      wrapping, alphabetical index order;
+    - all six external links fetched and confirmed to be the named
+      documents;
+    - relative links resolve;
+    - no secret-like content or local paths.
+  - Decisions: placement under `knacks/AI/` rather than
+    `software-engineering/`, because the load trigger is specific to AI
+    agents.
+  - Risk decisions: the knack is 1,445 words, above the ~1,250 overview
+    target and within the practical limit; not split, because its sections
+    are only useful together.
+
 - FM-TASK-009 — Added maintained Ubersight development-observability
   guidance and filed an applicable source-owned ECR. Owner: FieldManual
   maintainers; execution by an AI assistant under repository-operator

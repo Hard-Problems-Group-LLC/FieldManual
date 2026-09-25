@@ -19,7 +19,8 @@ currency, and review guidance.
 
 ## Stock Areas
 
-- [`AI/`](AI/) — integration boundaries for AI development systems
+- [`AI/`](AI/) — integration boundaries for AI development systems and
+  product-neutral agent-orchestration patterns
 - [`auditing/`](auditing/) — evidence-oriented review, including software
   bills of materials
 - [`authentication/`](authentication/) — identity and authentication
