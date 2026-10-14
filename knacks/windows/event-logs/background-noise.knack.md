@@ -1,6 +1,6 @@
 # Background Events: Notification Noise and Corrected Errors
 
-Reviewed: 2026-10-13
+Reviewed: 2026-10-14
 
 ## When to Load This Knack
 
@@ -58,6 +58,18 @@ Get-WinEvent -FilterHashtable @{
 } -ErrorAction SilentlyContinue |
     Group-Object { $_.TimeCreated.ToString('yyyy-MM-dd HH:00') } -NoElement
 ```
+
+The same launches can disturb the display itself. Observed once on a
+television used as the monitor over HDMI: the set rebooted its own
+operating system (it showed its vendor boot logo on power-up rather than
+waking from standby) during an automated game launch, while the PC logged
+nothing but event 4125. That was one reboot in about a hundred launches,
+so the trigger is uncertain: the game's start-up mode change, the HDR
+switch, or the refresh rate. After such a reboot, check the desktop's
+resolution and refresh rate, because the set may renegotiate a different
+mode (an unusual 24 Hz desktop was seen afterwards). On machines that drive
+a television, prefer the first remedy below, launch test runs windowed,
+and do not leave long unattended runs on a display that has done this.
 
 Remedies, in order of preference; all are the operator's choice:
 
