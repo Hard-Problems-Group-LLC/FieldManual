@@ -9,7 +9,10 @@ its source-review date and point to the current authoritative documentation.
 
 - [Agent orchestration](agent-orchestration/README.md) — product-neutral
   patterns for multi-agent development workflows, including staged
-  verification
+  verification, shared-checkout subagents, adversarial review, and
+  integrating unverified agent work
+- [Anthropic](Anthropic/README.md) — Claude Code on native Windows: tools,
+  subagents and workflows, and memory and state
 - [OpenAI](OpenAI/README.md) — Codex and OpenAI integration guidance
 
 These knacks describe operating boundaries, safe client behavior, and

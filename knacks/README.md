@@ -19,8 +19,9 @@ currency, and review guidance.
 
 ## Stock Areas
 
-- [`AI/`](AI/) — integration boundaries for AI development systems and
-  product-neutral agent-orchestration patterns
+- [`AI/`](AI/) — integration boundaries for AI development systems,
+  including OpenAI Codex and Anthropic Claude Code, and product-neutral
+  agent-orchestration patterns
 - [`auditing/`](auditing/) — evidence-oriented review, including software
   bills of materials
 - [`authentication/`](authentication/) — identity and authentication
@@ -28,17 +29,27 @@ currency, and review guidance.
 - [`debugging/`](debugging/) — language-neutral debugging methods
 - [`desktop/`](desktop/) — graphical session selection, extension lifecycle,
   and desktop integration
+- [`dotnet/`](dotnet/) — .NET plugins for closed hosts: shared
+  `netstandard2.0` libraries, .NET Framework builds, Visual Studio from
+  scripts, closed-assembly inspection, and culture-safe formatting
+- [`games/`](games/) — developing, testing, and modding games on a
+  workstation the player also uses, starting with Steam
 - [`knowledge-management/`](knowledge-management/) — FieldManual's
   knowledge-management profile and its specifications
 - [`performance/`](performance/) — measurement and profiling practices
 - [`sandboxing/`](sandboxing/) — process-isolation and execution-boundary
-  guidance
+  guidance, including isolating coding agents on Windows
 - [`software-engineering/`](software-engineering/) — design, code-quality,
-  development-observability, and reusable tool-integration techniques
+  development-observability, and reusable tool-integration techniques,
+  plus testing (in-host smoke testing), procedural generation, and
+  directed demonstrations
 - [`UI/`](UI/) — terminal and browser interface engineering and automation
 - [`version-control/`](version-control/) — repository inspection, repair, and
   collaboration
-- [`virtualization/`](virtualization/) — virtual-machine safety and control
+- [`virtualization/`](virtualization/) — virtual-machine safety and control, including Windows Sandbox
+- [`windows/`](windows/) — working on a Windows workstation as or beside an
+  AI agent: shells and encodings, Git, processes and files, event logs,
+  desktop automation, and porting command-line tools
 
 Start with the narrowest area that matches the task, then follow its local
 index. Load related knacks together when one describes a general boundary and
