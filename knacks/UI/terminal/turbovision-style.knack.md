@@ -12,8 +12,8 @@ decoration.
 
 This is a style and composition guide, not a claim of source, widget, or binary
 compatibility with Turbo Vision. Read the general
-[Terminal UI Design](../terminal-ui-design.knack/terminal-ui-design.overview.knack.md),
-[Keyboard Navigation](../keyboard-navigation.knack.md), and applicable
+[Terminal UI Design](design/overview.knack.md),
+[Keyboard Navigation](keyboard-navigation.knack.md), and applicable
 rendering companion first.
 
 ## Architecture Before Appearance
@@ -55,7 +55,7 @@ need an attribute-based approximation, and bold does not universally mean a
 bright foreground. Define a coherent monochrome mapping with reverse,
 underline, weight, spacing, and labels; never make color the only state cue.
 
-Use [Box Drawing and Shading](../box-drawing-and-shading.knack.md) to choose
+Use [Box Drawing and Shading](box-drawing-and-shading.knack.md) to choose
 among ASCII, ACS, Unicode, and a deliberately controlled legacy repertoire.
 
 ## Composition Patterns
@@ -120,7 +120,7 @@ entry, then restore the prior policy.
 
 The Python-specific lower-right error behavior, color mapping, one-owner rule,
 and test strategy live in
-[Python Curses Rendering](../terminal-ui-design.knack/terminal-ui-design.api.rendering.Python.knack.md).
+[Python Curses Rendering](design/rendering.Python.knack.md).
 Do not duplicate them in the style implementation.
 
 ## Automation and Verification
@@ -138,7 +138,7 @@ The pure frame makes visual states inspectable without screenshots. Test:
 - text-caret visibility during editing.
 
 For drive/observe testing, follow
-[Terminal UI Automation](../terminal-ui-design.knack/terminal-ui-design.api.automation.knack.md).
+[Terminal UI Automation](design/automation.knack.md).
 An attached automation endpoint is a consequential control plane, even when
 the visible interface is styled as a simple terminal application.
 

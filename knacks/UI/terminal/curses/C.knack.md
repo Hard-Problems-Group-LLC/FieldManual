@@ -9,7 +9,7 @@ interface. Read `curses.knack.md` first for the screen-management model.
 
 The portable API is declared through `<curses.h>`. Real implementations may
 provide macros, extensions, and different wide-character support. Keep
-ncurses-only calls separate and consult `ncurses.api.C.knack.md` when the
+ncurses-only calls separate and consult `../ncurses/C.knack.md` when the
 program intentionally depends on them.
 
 ## Core State and Types

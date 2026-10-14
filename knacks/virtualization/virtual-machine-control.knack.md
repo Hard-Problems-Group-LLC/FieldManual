@@ -212,6 +212,6 @@ repeated starts.
 
 - NIST SP 800-125,
   [Guide to Security for Full Virtualization Technologies](https://csrc.nist.gov/pubs/sp/800/125/final)
-- [Oracle VirtualBox Control](virtualbox-control.knack/virtualbox-control.overview.knack.md)
+- [Oracle VirtualBox Control](virtualbox/overview.knack.md)
 
 Reviewed: 2026-07-23.

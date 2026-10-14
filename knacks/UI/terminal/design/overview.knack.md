@@ -10,9 +10,9 @@ capabilities, rendering ownership, Unicode, lifecycle safety, remote use, and
 the boundary between a UI model and a terminal library.
 
 For a particular layer, also load the applicable
-[input](terminal-ui-design.api.input.POSIX.knack.md),
-[Python rendering](terminal-ui-design.api.rendering.Python.knack.md), or
-[automation](terminal-ui-design.api.automation.knack.md) companion and the
+[input](input.POSIX.knack.md),
+[Python rendering](rendering.Python.knack.md), or
+[automation](automation.knack.md) companion and the
 relevant protocol or library knack from the parent directory.
 
 ## Mental Model

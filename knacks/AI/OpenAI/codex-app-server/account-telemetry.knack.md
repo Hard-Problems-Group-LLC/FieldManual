@@ -5,7 +5,7 @@ ChatGPT rate-limit state, or ChatGPT token-activity summaries without scraping
 the interactive terminal UI.
 
 Source review: 2026-07-23. Read the
-[app-server overview](codex-app-server.overview.knack.md) first.
+[app-server overview](overview.knack.md) first.
 
 ## Scope and Safety
 

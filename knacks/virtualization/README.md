@@ -9,7 +9,7 @@ belong to one hypervisor.
 - [Safe Virtual-Machine Control](virtual-machine-control.knack.md) — target
   identity, state evidence, writable-media ownership, backups, overlays, and
   an evidence-driven automated-test lifecycle
-- [VirtualBox Control](virtualbox-control.knack/virtualbox-control.overview.knack.md)
+- [VirtualBox Control](virtualbox/overview.knack.md)
   — Oracle VirtualBox control-plane orientation, framebuffer and input
   automation, fixture overlays, and a version-scoped `VBoxManage` companion
 - [Windows Sandbox](windows-sandbox/overview.knack.md) — testing on a

@@ -7,16 +7,16 @@ protocols, emulator behavior, screen libraries, and language-specific APIs.
 
 ## Application Design
 
-- [Terminal UI Design](terminal-ui-design.knack/terminal-ui-design.overview.knack.md)
+- [Terminal UI Design](design/overview.knack.md)
   — architecture, capability boundaries, Unicode cells, lifecycle, remote use,
   accessibility, and verification
-- [Terminal UI Automation](terminal-ui-design.knack/terminal-ui-design.api.automation.knack.md)
+- [Terminal UI Automation](design/automation.knack.md)
   — headless frame testing and secure, request-correlated drive/observe
   interfaces
-- [POSIX Terminal UI Input](terminal-ui-design.knack/terminal-ui-design.api.input.POSIX.knack.md)
+- [POSIX Terminal UI Input](design/input.POSIX.knack.md)
   — semantic input, termios lifecycle, bounded raw adapters, sequence parsing,
   signals, and job control
-- [Python Curses Rendering](terminal-ui-design.knack/terminal-ui-design.api.rendering.Python.knack.md)
+- [Python Curses Rendering](design/rendering.Python.knack.md)
   — one-owner painting, Unicode, lower-right behavior, colors, cursors,
   diagnostics, and testing
 - [Keyboard Navigation](keyboard-navigation.knack.md) — focus, selection,
@@ -24,7 +24,7 @@ protocols, emulator behavior, screen libraries, and language-specific APIs.
   accessibility
 - [Box Drawing and Shading](box-drawing-and-shading.knack.md) — ASCII, ACS,
   DEC graphics, Unicode, CP437, cell width, and fallbacks
-- [Turbo Vision–Style TUIs](turbovision-style-tuis.knack/turbovision-style-tuis.overview.knack.md)
+- [Turbo Vision–Style TUIs](turbovision-style.knack.md)
   — a classic menu/status/canvas visual idiom built on the general architecture
 
 ## Protocols and Emulator Families
@@ -38,14 +38,14 @@ protocols, emulator behavior, screen libraries, and language-specific APIs.
 
 ## Libraries and APIs
 
-- [Curses Programming Model](curses.knack.md) — portable curses concepts
-- [Curses C API](curses.api.C.knack.md) — portable C calls and lifecycle
-- [Curses Python API](curses.api.Python.knack.md) — Python's standard module
+- [Curses Programming Model](curses/overview.knack.md) — portable curses concepts
+- [Curses C API](curses/C.knack.md) — portable C calls and lifecycle
+- [Curses Python API](curses/Python.knack.md) — Python's standard module
   and helpers
-- [ncurses](ncurses.knack.md) — implementation and extension boundary
-- [ncurses C API](ncurses.api.C.knack.md) — C extensions and companion
+- [ncurses](ncurses/overview.knack.md) — implementation and extension boundary
+- [ncurses C API](ncurses/C.knack.md) — C extensions and companion
   libraries
-- [ncurses C++ API](ncurses.api.CPP.knack.md) — the wrapper shipped with
+- [ncurses C++ API](ncurses/CPP.knack.md) — the wrapper shipped with
   ncurses
 
 ## Load Order

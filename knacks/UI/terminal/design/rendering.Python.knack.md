@@ -5,9 +5,9 @@ Reviewed: 2026-07-23
 ## When to Load This Knack
 
 Load this companion when a Python full-screen UI uses `curses` as its physical
-renderer. Read the general [Curses Python API](../curses.api.Python.knack.md)
+renderer. Read the general [Curses Python API](../curses/Python.knack.md)
 for call families and the
-[terminal UI design overview](terminal-ui-design.overview.knack.md) for
+[terminal UI design overview](overview.knack.md) for
 architecture and Unicode cell rules.
 
 ## Position

@@ -7,8 +7,8 @@ and the portable curses model matters more than raw escape sequences.
 
 ## Related API Knacks
 
-- `curses.api.C.knack.md` covers the portable C API.
-- `curses.api.Python.knack.md` covers Python's `curses` module.
+- [`C.knack.md`](C.knack.md) covers the portable C API.
+- [`Python.knack.md`](Python.knack.md) covers Python's `curses` module.
 - `ncurses.knack.md` covers the most common implementation and its
   extensions.
 

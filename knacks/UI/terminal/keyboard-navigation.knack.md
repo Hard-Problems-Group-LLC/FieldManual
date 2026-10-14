@@ -8,7 +8,7 @@ Load this knack when designing or reviewing keyboard interaction for terminal
 menus, lists, forms, trees, tables, dialogs, editors, dashboards, pickers, or
 command palettes.
 
-Use it with the [Terminal UI Design](terminal-ui-design.knack/terminal-ui-design.overview.knack.md)
+Use it with the [Terminal UI Design](design/overview.knack.md)
 overview and the applicable input or library companion.
 
 ## Mental Model
@@ -158,7 +158,7 @@ settings, emulator behavior, active modes, transport, and library decoding.
 
 Prefer semantic events decoded through the terminal library and terminfo.
 When parsing directly, follow the
-[POSIX Input](terminal-ui-design.knack/terminal-ui-design.api.input.POSIX.knack.md)
+[POSIX Input](design/input.POSIX.knack.md)
 companion. Do not make essential navigation depend only on Alt, Option,
 function keys, or one modified sequence.
 

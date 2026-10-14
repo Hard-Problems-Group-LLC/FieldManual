@@ -6,7 +6,7 @@ Reviewed: 2026-07-23
 
 Load this companion when implementing or diagnosing input for a full-screen
 terminal UI on POSIX systems. Also load the parent
-[design overview](terminal-ui-design.overview.knack.md) and, when decoding
+[design overview](overview.knack.md) and, when decoding
 emulator behavior directly, the [xterm-family](../xterms.knack.md) and
 [VT100](../vt100.knack.md) knacks.
 

@@ -4,7 +4,7 @@
 
 Load this knack when C code intentionally depends on ncurses extensions,
 wide-character variants, companion libraries, or implementation tools. Use
-`curses.api.C.knack.md` for the portable baseline.
+`../curses/C.knack.md` for the portable baseline.
 
 ## Build Boundary
 

@@ -6,7 +6,7 @@ Reviewed: 2026-07-23
 
 Load this knack when tests, CI, or an authorized operator need to drive and
 observe a terminal UI without relying on image capture or manual keystrokes.
-Read the [terminal UI design overview](terminal-ui-design.overview.knack.md)
+Read the [terminal UI design overview](overview.knack.md)
 first.
 
 ## Position

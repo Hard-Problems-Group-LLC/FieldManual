@@ -5,14 +5,14 @@ concrete task or investigation. They capture practical mental models,
 workflows, sharp edges, and authoritative references without requiring
 executable tooling.
 
-A single-file knack lives in a topic directory as `name.knack.md`. A related
-set may use an overview plus API companions:
+A single-file knack lives in its area as `topic.knack.md`. A larger set is
+a directory named for its topic, holding an overview and companions named
+for their part only, so no component of a path repeats:
 
-- `topic.overview.knack.md`
-- `topic.api.knack.md`
-- `topic.api.C.knack.md`
-- `topic.api.CPP.knack.md`
-- `topic.api.Python.knack.md`
+- `topic/overview.knack.md`
+- `topic/part.knack.md`
+- `topic/C.knack.md`, `topic/Python.knack.md` (language-specific parts)
+- `topic/part/overview.knack.md` (a part promoted to its own directory)
 
 See [the authoring guide](authoring-guide.md) for sizing, naming, sourcing,
 currency, and review guidance.

@@ -3,7 +3,7 @@
 Load this overview before using Oracle VirtualBox to create, start, drive,
 observe, or troubleshoot a VM. Read the
 [provider-neutral safety knack](../virtual-machine-control.knack.md) first and
-use the [API companion](virtualbox-control.api.knack.md) for command patterns.
+use the [API companion](VBoxManage.knack.md) for command patterns.
 
 ## Scope And Version
 
@@ -182,6 +182,6 @@ repository.
   [VirtualBox 7.2 Security Guide](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Security.html)
 - Oracle,
   [VirtualBox 7.2 Storage](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/storage.html)
-- [VirtualBox `VBoxManage` API Companion](virtualbox-control.api.knack.md)
+- [VirtualBox `VBoxManage` API Companion](VBoxManage.knack.md)
 
 Reviewed: 2026-07-23.

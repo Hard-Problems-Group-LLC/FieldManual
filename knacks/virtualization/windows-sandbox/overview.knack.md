@@ -190,4 +190,4 @@ Get-WinEvent -FilterHashtable @{
   [microsoft/Windows-Sandbox issues](https://github.com/microsoft/Windows-Sandbox/issues)
 - FieldManual: [Event Logs](../../windows/event-logs/overview.knack.md),
   [Processes and Files](../../windows/processes-and-files/overview.knack.md),
-  and [VirtualBox Control](../virtualbox-control.knack/virtualbox-control.overview.knack.md)
+  and [VirtualBox Control](../virtualbox/overview.knack.md)

@@ -1,7 +1,7 @@
 # VirtualBox `VBoxManage` API Companion
 
 Load this companion after the
-[VirtualBox overview](virtualbox-control.overview.knack.md) when concrete
+[VirtualBox overview](overview.knack.md) when concrete
 `VBoxManage` command families are needed. The examples use neutral
 placeholders and Oracle VirtualBox 7.2 syntax. Inspect local help before
 executing them.

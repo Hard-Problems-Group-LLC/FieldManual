@@ -8,9 +8,9 @@ libraries, or ncurses terminfo tools.
 
 ## Related API Knacks
 
-- `ncurses.api.C.knack.md` covers the C extensions and companion libraries.
-- `ncurses.api.CPP.knack.md` covers the shipped C++ wrapper.
-- `curses.api.Python.knack.md` covers Python's curses wrapper, which commonly
+- [`C.knack.md`](C.knack.md) covers the C extensions and companion libraries.
+- [`CPP.knack.md`](CPP.knack.md) covers the shipped C++ wrapper.
+- [`../curses/Python.knack.md`](../curses/Python.knack.md) covers Python's curses wrapper, which commonly
   uses ncurses on Unix-like systems.
 
 ## Mental Model

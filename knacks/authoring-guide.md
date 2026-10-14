@@ -55,7 +55,8 @@ in the names beneath it: `windows/shells/PowerShell.knack.md`, not
 `windows/shells.knack/shells.api.PowerShell.knack.md` or
 `windows/windows-shells/PowerShell.knack.md`. A fileset directory is
 recognised by its `overview.knack.md`; an area directory by its
-`README.md`.
+`README.md`. The `.knack` marker appears only in file names, never
+in directory names.
 
 When a part outgrows one file, because it has deep details, special cases,
 or techniques worth their own documents, promote it to a subdirectory named
@@ -71,10 +72,6 @@ way (`shells.knack.md` becomes `shells/overview.knack.md`). Promotion
 changes the path, so rewrite the links that point to it. Every fileset
 directory, at any depth, therefore has the same entry point, and no name
 repeats a component of its path.
-
-Older filesets named `<topic>.knack/<topic>.overview.knack.md`, with
-companions beginning `<topic>.api`, predate this rule. Rename them when they
-are next revised, and rewrite the links that point to them.
 
 ### Choosing Names
 
