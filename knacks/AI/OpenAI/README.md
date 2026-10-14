@@ -7,9 +7,9 @@ provider.
 
 ## Codex App Server
 
-- [Overview](codex-app-server.knack/codex-app-server.overview.knack.md) —
+- [Overview](codex-app-server/overview.knack.md) —
   surface selection, protocol lifecycle, transports, and safe client design
-- [Account Telemetry API](codex-app-server.knack/codex-app-server.api.account-telemetry.knack.md) —
+- [Account Telemetry API](codex-app-server/account-telemetry.knack.md) —
   account, rate-limit, and usage diagnostics
 
 The Codex app-server protocol is version-sensitive. Recheck the official

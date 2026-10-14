@@ -22,26 +22,76 @@ when it solves the task without losing essential context.
 
 ## Naming and Layout
 
-Use `<topic>.knack.md` when one document is sufficient.
+A knack's full path should state its purpose and scope once, with no
+component repeated. Paths grow long quickly, and every repeated word costs
+every reader, link, and listing.
 
-For a larger fileset:
+Use `<topic>.knack.md` when one document is sufficient:
 
-- use `<topic>.overview.knack.md` as the conceptual entry point;
-- begin API companions with `<topic>.api`;
-- append a stable language tag when the API is language-specific, such as
-  `.C`, `.CPP`, or `.Python`; and
-- insert stable subsystem tokens between `.api` and the language tag when an
-  API needs further division.
+- `knacks/UI/terminal/ansi.knack.md`
+- `knacks/sandboxing/bubblewrap.knack.md`
+
+For a larger fileset, make a directory named for the topic and name each
+file inside for its own part only:
+
+- `overview.knack.md` is the conceptual entry point and links its
+  companions;
+- each companion is `<part>.knack.md`, for a stable subsystem or concern;
+  and
+- a language-specific companion appends a stable language tag:
+  `<part>.<Language>.knack.md`, or `<Language>.knack.md` when the language
+  is the whole subject. Tags include `C`, `CPP`, `CSharp`, `PowerShell`,
+  and `Python`.
 
 Examples:
 
-- `ansi.knack.md`
-- `curses.api.C.knack.md`
-- `curses.api.Python.knack.md`
-- `renderer.api.layout.CPP.knack.md`
+- `knacks/windows/shells/overview.knack.md`
+- `knacks/windows/shells/PowerShell.knack.md`
+- `knacks/dotnet/assembly-inspection/reflection.PowerShell.knack.md`
+- `knacks/games/steam/install-layout.knack.md`
 
-When a fileset needs its own container, use a directory named
-`<topic>.knack/`.
+The directory is the topic. Do not repeat it, or any other path component,
+in the names beneath it: `windows/shells/PowerShell.knack.md`, not
+`windows/shells.knack/shells.api.PowerShell.knack.md` or
+`windows/windows-shells/PowerShell.knack.md`. A fileset directory is
+recognised by its `overview.knack.md`; an area directory by its
+`README.md`. The `.knack` marker appears only in file names, never
+in directory names.
+
+When a part outgrows one file, because it has deep details, special cases,
+or techniques worth their own documents, promote it to a subdirectory named
+for the part. Its main document becomes that directory's
+`overview.knack.md`, and the new files sit beside it:
+
+- `knacks/windows/shells/PowerShell/overview.knack.md`
+- `knacks/windows/shells/PowerShell/remoting.knack.md`
+
+A part with a single file stays a file; do not make a directory for one
+document. A single-document knack that gains companions is promoted the same
+way (`shells.knack.md` becomes `shells/overview.knack.md`). Promotion
+changes the path, so rewrite the links that point to it. Every fileset
+directory, at any depth, therefore has the same entry point, and no name
+repeats a component of its path.
+
+### Choosing Names
+
+- Because a topic appears once in its path, name it for clarity: say what
+  the knack covers, using no word the path already supplies
+  (`windows/desktop-automation/`, not `windows/desktop/` or
+  `windows/windows-desktop-automation/`).
+- Keep part names to a word or two (`transport`, `install-layout`).
+- Aim for full paths under `knacks/` of about 70 characters or fewer.
+- When several topics share a qualifier, such as a platform, product, or
+  tool, give them a subarea directory instead of a shared prefix
+  (`AI/Anthropic/claude-code/windows/`). Split an area into subareas once
+  it holds more topics than a reader can scan at a glance, roughly eight.
+- File a knack where a reader would look for its subject, not where its
+  author found it. A testing technique belongs under testing even when it
+  was learned while orchestrating agents; Windows Sandbox, a disposable
+  virtual machine, belongs under virtualization.
+- Give every area directory a `README.md` that indexes its contents, so a
+  reader can descend from `knacks/README.md` to any file; a fileset's
+  overview indexes its companions.
 
 ## Reusable and Project-Owned Material
 
