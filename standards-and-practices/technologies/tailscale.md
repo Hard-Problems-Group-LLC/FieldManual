@@ -62,5 +62,6 @@ unexpected public or plaintext exposure.
 
 ## Related Guidance
 
+- [Provisioning and login knacks](../../knacks/networking/tailscale/overview.knack.md)
 - [Caddy](caddy.md)
 - [Podman](podman.md)

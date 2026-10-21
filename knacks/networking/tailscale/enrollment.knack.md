@@ -1,0 +1,109 @@
+# Console Enrollment
+
+Reviewed: 2026-10-21. Verify options with the packaged client's help output.
+
+## When to Load
+
+Use this reference when a console installer must join a tailnet before its
+own authorization or provisioning work can continue.
+
+## Use the Identity Provider's Browser
+
+A console need not collect identity-provider credentials. Run the standard
+Tailscale enrollment flow and display its login URL and, where useful, QR
+code. The operator opens the link on a trusted phone or laptop, completes
+Google or another configured provider's sign-in, and returns to the console.
+This preserves the provider's normal password, passkey and MFA handling.
+
+A QR code can be printed in a text console; it does not require a graphical
+server or framebuffer browser. Always show the plain URL too. Serial
+terminals, limited fonts, clipped lines or a camera that cannot scan the
+display must not remove the operator's alternative enrollment path.
+
+For unattended installations, offer a bounded opt-in window before starting
+interactive enrollment. A conspicuous banner can accept one key to begin,
+Esc to skip, and default to skip after a countdown. Keep this offer deadline
+separate from the enrollment deadline. Skipping network enrollment must not
+silently bypass the application's independent authorization policy.
+
+Before an operator signs in, stop AI framebuffer capture, input injection,
+console recording and guest inspection. Enter credentials on a trusted
+second device outside the automation account's access when hard isolation
+is required. Pausing capture in a VM controlled by the same account is an
+operational boundary, not a cryptographic guarantee. Resume observation
+only after the operator explicitly finishes the private stage.
+
+For an interactive console, the CLI can display its own enrollment UI:
+
+```sh
+tailscale up --qr --timeout=10m
+```
+
+Use a finite application-level deadline too. A timeout does not authorize
+the installer to proceed. Cancellation, daemon exit or exhausted enrollment
+time must return control without beginning destructive installation work.
+
+Do not ask for a Gmail password in a custom TUI, scrape Google's forms, use
+an application password as an OAuth substitute, or assume a terminal web
+browser supports the provider's current security requirements. An email
+address may be an optional account hint, but it proves no identity.
+
+## State and Process Ownership
+
+Use the daemon's real state, not a success-looking line in CLI output.
+`tailscale status --json` exposes `BackendState` and `AuthURL`. A nonzero
+CLI exit may still accompany meaningful JSON while the node needs login.
+Parse and validate the JSON before treating the exit status alone as proof
+that the daemon is unavailable.
+
+The documented states have different consequences:
+
+| State | Meaning for an installer |
+| --- | --- |
+| `NoState`, `NeedsLogin` | Start or continue enrollment |
+| `NeedsMachineAuth` | Authentication finished; administrator approval waits |
+| `Starting` | Wait within the connection deadline |
+| `Running` | Check the intended server separately |
+| `Stopped` | Do not silently override an intentional stop |
+
+Use a private daemon socket and state directory when running in a temporary
+environment. Do not attach test automation to the workstation's existing
+daemon. Use kernel TUN mode when ordinary application connections need the
+overlay route; userspace networking requires deliberately configuring its
+proxy or forwarding path. Check kernel and firewall support in the actual
+installer environment, not only in the installed distribution.
+
+Capture only the data needed to drive the UI. Keep the login URL on the
+interactive console or in a private session handoff. Avoid `tee`, shell
+tracing, screenshots retained without review, and general-purpose process
+logs that copy the URL into durable records.
+
+## Noninteractive Alternatives
+
+Auth keys can enroll unattended machines. Scope them through an approved
+secret-delivery path, use short lifetimes and appropriate tags, and apply
+least-privilege tailnet policy. A reusable key baked into shared installation
+media remains reusable by anyone who can read that medium.
+
+OAuth clients and workload identity are separate deployment designs. They
+require a trust and secret-delivery decision; they are not a reason to
+request a user's Google password. Device approval may still be required.
+
+An ephemeral node can use an ephemeral auth key or a daemon with in-memory
+state. Choose this only when losing its identity at shutdown is intended.
+Do not promise seamless installed-system continuity for an ephemeral node.
+
+## Failure Checks
+
+Verify offline startup, provider unavailability, approval pending, user
+cancellation, expiration, daemon termination and denied server access.
+Do not disable TLS verification or fall back to unauthenticated installation
+to make a failed enrollment look successful.
+
+## Sources
+
+- [Up command](https://tailscale.com/docs/reference/tailscale-cli/up)
+- [Add a device](https://tailscale.com/docs/features/access-control/device-management/how-to/set-up)
+- [Auth keys](https://tailscale.com/kb/1085/auth-keys)
+- [Ephemeral nodes](https://tailscale.com/docs/features/ephemeral-nodes)
+- [Upstream status fields](https://github.com/tailscale/tailscale/blob/main/ipn/ipnstate/ipnstate.go)

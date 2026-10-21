@@ -6,6 +6,24 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- FM-TASK-011 — Added reusable Tailscale provisioning references. Owner:
+  repository operator; execution by AI under explicit authorization to
+  maintain and publish FieldManual. Started: 2026-10-21; exact start time was not recorded.
+  Completed: 2026-10-21T14:30:00-07:00.
+  - Outcome: four original, product-neutral references cover console URL/QR
+    enrollment, native RPM installation and updates, private identity
+    handoff, and desktop reauthentication. Added networking discovery and
+    linked the existing technology baseline.
+  - Validation: reviewed official documentation and upstream CLI/status/unit
+    source; checked local links, formatting, size, and absence of consuming
+    project names, local paths, credentials, or implementation material.
+    A disposable RHEL-family VM confirmed signed native package installation,
+    repository refresh, account-scoped URL access, and an unprivileged
+    browser launch under enforcing SELinux using a synthetic URL.
+  - Limits: real identity-provider enrollment and stopped-state migration
+    remain deployment-specific validation requirements. The references
+    explicitly distinguish synthetic tests from those proofs.
+
 - FM-TASK-010 — Added product-neutral staged-verification guidance for
   multi-agent development workflows. Owner: FieldManual maintainers;
   execution by an AI assistant under repository-operator direction. Created

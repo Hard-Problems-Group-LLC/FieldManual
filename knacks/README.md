@@ -36,6 +36,8 @@ currency, and review guidance.
   workstation the player also uses, starting with Steam
 - [`knowledge-management/`](knowledge-management/) — FieldManual's
   knowledge-management profile and its specifications
+- [`networking/`](networking/) — provisioning connectivity, Tailscale
+  enrollment, native packaging, and desktop reauthentication
 - [`performance/`](performance/) — measurement and profiling practices
 - [`sandboxing/`](sandboxing/) — process-isolation and execution-boundary
   guidance, including isolating coding agents on Windows
