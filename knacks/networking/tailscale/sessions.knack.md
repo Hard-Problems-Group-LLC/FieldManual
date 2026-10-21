@@ -75,6 +75,16 @@ can prompt again. Explain how an operator can retry after closing the window.
 Preserve existing network preferences during reconnect; avoid `--reset` and
 `--force-reauth` unless the operator deliberately requests them.
 
+Keep the browser's address bar and close control available during login.
+Setup tours can obscure the enrollment page on a fresh desktop. Firefox's
+`OverrideFirstRunPage` policy with an empty string disables its welcome tour;
+`OverridePostUpdatePage` can suppress update tabs, and
+`DontCheckDefaultBrowser` suppresses the default-browser startup question.
+Merge these narrow startup settings into existing policy, preserving
+unrelated DNS and certificate rules. Do not edit or inspect a user's
+credential-bearing profile to remove onboarding. Test a fresh profile
+separately from real login.
+
 ## Validate the Actual Boundaries
 
 Exercise fresh login, logout after successful login, expired keys, canceled
@@ -99,3 +109,6 @@ route is ready. Preserve a retryable outcome when the deadline expires.
 - [CLI reference](https://tailscale.com/kb/1080/cli)
 - [Packaged daemon unit source](https://github.com/tailscale/tailscale/blob/main/cmd/tailscaled/tailscaled.service)
 - [Live user-session targeting](../../desktop/live-user-session-targeting.knack.md)
+- [Firefox first-run policy](https://firefox-admin-docs.mozilla.org/reference/policies/overridefirstrunpage/)
+- [Firefox update-page policy](https://firefox-admin-docs.mozilla.org/reference/policies/overridepostupdatepage/)
+- [Firefox default-browser policy](https://firefox-admin-docs.mozilla.org/reference/policies/dontcheckdefaultbrowser/)

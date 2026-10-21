@@ -26,6 +26,9 @@ evidence, important decisions or risk acceptances, and follow-up records.
   - Follow-up, 2026-10-21: documented native nftables/Netlink selection for
     temporary environments without an iptables executable; checked the
     vendor's firewall-backend reference and a diskless installer runtime.
+  - Follow-up, 2026-10-21: added browser startup-policy guidance to retain
+    visible origin/close controls during enrollment; verified Mozilla's
+    current first-run, update-page and default-browser policy references.
 
 - FM-TASK-010 — Added product-neutral staged-verification guidance for
   multi-agent development workflows. Owner: FieldManual maintainers;
