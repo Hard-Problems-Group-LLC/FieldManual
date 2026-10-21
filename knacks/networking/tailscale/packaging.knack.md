@@ -74,6 +74,13 @@ architectures and overwrites. Never execute package scriptlets merely to
 obtain the temporary client. Confirm that the installer has the runtime,
 kernel TUN and firewall facilities the client expects.
 
+Check the temporary environment independently of the target package list.
+An installer can provide kernel TUN but omit the `iptables` executable.
+Tailscale's native nftables backend uses the kernel Netlink API and can be
+selected for that daemon through `TS_DEBUG_FIREWALL_MODE=nftables`. Verify
+the packaged client's support and the actual installer's kernel; do not
+disable firewall handling to conceal a missing runtime dependency.
+
 ## Validation and Maintenance
 
 Check the installed package with RPM, inspect the executable selected by
@@ -93,3 +100,4 @@ disk usage.
 - [Linux installation](https://tailscale.com/docs/install/linux)
 - [Official installer implementation](https://github.com/tailscale/tailscale/blob/main/scripts/installer.sh)
 - [RPM signature verification](https://rpm.org/docs/6.0.x/man/rpmkeys.8)
+- [Daemon firewall backends](https://tailscale.com/docs/features/firewall-mode)

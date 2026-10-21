@@ -23,6 +23,9 @@ evidence, important decisions or risk acceptances, and follow-up records.
   - Limits: real identity-provider enrollment and stopped-state migration
     remain deployment-specific validation requirements. The references
     explicitly distinguish synthetic tests from those proofs.
+  - Follow-up, 2026-10-21: documented native nftables/Netlink selection for
+    temporary environments without an iptables executable; checked the
+    vendor's firewall-backend reference and a diskless installer runtime.
 
 - FM-TASK-010 — Added product-neutral staged-verification guidance for
   multi-agent development workflows. Owner: FieldManual maintainers;
