@@ -85,6 +85,15 @@ unrelated DNS and certificate rules. Do not edit or inspect a user's
 credential-bearing profile to remove onboarding. Test a fresh profile
 separately from real login.
 
+Some distribution builds also open a separate legacy data-reporting notice
+tab. This is independent of the welcome tour. Firefox's supported
+`Preferences` policy can set `datareporting.policy.firstRunURL` to an empty
+string with `Status: default`, preserving other administrator preferences.
+Verify the actual packaged browser with a fresh disposable profile; a policy
+file alone does not prove a quiet first launch. This setting is distinct
+from `SkipTermsOfUse`, which represents acceptance on behalf of users and
+must not be treated as a cosmetic startup control.
+
 ## Validate the Actual Boundaries
 
 Exercise fresh login, logout after successful login, expired keys, canceled
@@ -112,3 +121,6 @@ route is ready. Preserve a retryable outcome when the deadline expires.
 - [Firefox first-run policy](https://firefox-admin-docs.mozilla.org/reference/policies/overridefirstrunpage/)
 - [Firefox update-page policy](https://firefox-admin-docs.mozilla.org/reference/policies/overridepostupdatepage/)
 - [Firefox default-browser policy](https://firefox-admin-docs.mozilla.org/reference/policies/dontcheckdefaultbrowser/)
+- [Firefox Preferences policy](https://firefox-admin-docs.mozilla.org/reference/policies/preferences/)
+- [Reporting first-run preference](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/preferences.html#data-choices-notification)
+- [Terms-of-use policy](https://firefox-admin-docs.mozilla.org/reference/policies/skiptermsofuse/)
