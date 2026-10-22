@@ -33,6 +33,30 @@ test the reboot transition. Interrupted installation must leave a clear
 recovery state. Avoid silently falling back to a different enrolled identity
 from an earlier attempt.
 
+## Recover Interrupted Publication
+
+Record the handoff transaction before publishing target state. Include an
+ownership receipt inside the atomically published directory so that a retry
+can recognize its own completed publication if labeling, service setup or
+final bookkeeping fails afterward. A nonempty directory without that exact
+receipt belongs to an unknown identity; refuse to overwrite it. Use private
+permissions, flush state before rename, and synchronize the parent directory
+when the recovery guarantee must survive a machine crash.
+
+Distinguish cancellation before handoff from interruption after publication
+begins. The first should stop the owned daemon and discard temporary state.
+The second should stop the daemon but retain the private recovery source and
+transaction record until publication is completed or the operator explicitly
+abandons the installation. Never let a generic temporary-directory cleanup
+recursively remove a partially saved installed-system identity. Repeated
+handoff completion should be idempotent.
+
+Keep temporary daemon state unsealed when the chosen native client supports
+TPM sealing and the installer cannot safely carry that sealing policy into
+the target. Make the choice explicit and version-specific; the native target
+service can apply its own supported storage policy after handoff. This is
+separate from permissions and SELinux labels.
+
 ## Keep Browser and Daemon Privileges Separate
 
 The daemon runs with its required system privileges. Firefox runs as the

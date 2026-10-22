@@ -73,6 +73,14 @@ overlay route; userspace networking requires deliberately configuring its
 proxy or forwarding path. Check kernel and firewall support in the actual
 installer environment, not only in the installed distribution.
 
+Daemon logging has its own directory policy. A private `--state` file and
+`--statedir` do not by themselves confine log files to that directory. For
+temporary environments, create a private RAM-backed log directory and set
+`TS_LOGS_DIR` for both the daemon and every client subprocess. Verify this
+against the deployed version; a missing directory can trigger a fallback to
+the normal system state directory. Treat diagnostic logs as sensitive even
+when enrollment output is not deliberately captured.
+
 Capture only the data needed to drive the UI. Keep the login URL on the
 interactive console or in a private session handoff. Avoid `tee`, shell
 tracing, screenshots retained without review, and general-purpose process
@@ -106,4 +114,5 @@ to make a failed enrollment look successful.
 - [Add a device](https://tailscale.com/docs/features/access-control/device-management/how-to/set-up)
 - [Auth keys](https://tailscale.com/kb/1085/auth-keys)
 - [Ephemeral nodes](https://tailscale.com/docs/features/ephemeral-nodes)
+- [Daemon log directory policy, version 1.104.2](https://github.com/tailscale/tailscale/blob/v1.104.2/logpolicy/logpolicy.go)
 - [Upstream status fields](https://github.com/tailscale/tailscale/blob/main/ipn/ipnstate/ipnstate.go)

@@ -6,6 +6,15 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- 2026-10-21T23:30:29-07:00 — FM-TASK-011 follow-up: documented independent
+  daemon/client log-directory confinement and recoverable atomic identity
+  publication. Added transaction ownership, stopped-state recovery,
+  idempotent retry and explicit temporary sealing-policy guidance. Checked
+  the pinned upstream log policy and native packaged-client behavior in an
+  unenrolled RHEL-family guest, including enforcing SELinux and reboot.
+  Human authenticated identity continuity remains deployment validation.
+  Original product-neutral prose; no consuming-project code or names.
+
 - FM-TASK-011 — Added reusable Tailscale provisioning references. Owner:
   repository operator; execution by AI under explicit authorization to
   maintain and publish FieldManual. Started: 2026-10-21; exact start time was not recorded.
