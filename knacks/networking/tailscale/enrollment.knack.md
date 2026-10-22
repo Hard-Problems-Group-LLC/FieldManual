@@ -86,6 +86,17 @@ URL. Writing the future target's `/etc/hostname` alone does not rename the
 running installer. Other services that read the kernel hostname can report
 that temporary name too.
 
+Coordinate with the operating system's hostname manager. A direct kernel
+rename alone can be replaced asynchronously: NetworkManager manages a
+transient hostname from DHCP/reverse DNS when no valid static name exists.
+On a systemd installer, registering both static and transient names through
+`hostnamectl --static --transient set-hostname NAME` avoids that fallback.
+Explicit selectors leave the pretty hostname alone and avoid its name
+simplification. Confirm command availability, case preservation and the
+live name during the actual installer boot; an installed guest with an
+existing static name can hide this race. Keep the temporary installer's
+static file distinct from the future target's hostname configuration.
+
 Choose the long-term naming policy explicitly. With an empty hostname
 preference, Tailscale derives its name from the OS. An explicit
 `tailscale up --hostname=NAME` or `tailscale set --hostname=NAME` stores an
@@ -184,6 +195,8 @@ to make a failed enrollment look successful.
 - [Native hostname preference, version 1.104.2](https://github.com/tailscale/tailscale/blob/v1.104.2/ipn/prefs.go)
 - [Native host information, version 1.104.2](https://github.com/tailscale/tailscale/blob/v1.104.2/hostinfo/hostinfo.go)
 - [Linux hostname limits](https://www.freedesktop.org/software/systemd/man/latest/hostname.html)
+- [Static and transient systemd hostnames](https://www.freedesktop.org/software/systemd/man/latest/hostnamectl.html)
+- [NetworkManager hostname management](https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html)
 - [Add a device](https://tailscale.com/docs/features/access-control/device-management/how-to/set-up)
 - [Auth keys](https://tailscale.com/kb/1085/auth-keys)
 - [Ephemeral nodes](https://tailscale.com/docs/features/ephemeral-nodes)
