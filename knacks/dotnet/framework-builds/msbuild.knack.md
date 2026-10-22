@@ -1,6 +1,6 @@
 # MSBuild Command Line for .NET Framework Projects
 
-Reviewed: 2026-10-13
+Reviewed: 2026-10-14
 
 Load this companion after the
 [.NET Framework builds overview](overview.knack.md) when
@@ -128,6 +128,44 @@ Inside a quoted argument, PowerShell expands `$name` in double quotes but not
 in single quotes. Prefer single quotes for literal MSBuild syntax such as
 `$(Configuration)`.
 
+## Validate Data Files in the Build
+
+A host plugin often ships data files (XML definitions, configuration) that
+the host binds to the plugin's types by name when it loads them. A typo in
+a type name compiles cleanly and fails only inside the host, sometimes
+silently. If a validator can check the files against the host's assembly
+and the assembly just built, run it as part of every build:
+
+```xml
+<!-- After Build: check the data files against the DLL just built.
+     Skip once with -p:SkipDataValidation=true. -->
+<Target Name="ValidateData"
+        AfterTargets="Build"
+        Condition="'$(SkipDataValidation)' != 'true' And '$(OS)' == 'Windows_NT'">
+  <Exec Command="powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\..\Tools\validate-data.ps1&quot; -Assembly &quot;$(TargetPath)&quot;"
+        IgnoreExitCode="true">
+    <Output TaskParameter="ExitCode" PropertyName="ValidateDataExitCode" />
+  </Exec>
+  <Error Condition="'$(ValidateDataExitCode)' != '0'"
+         Text="Data validation failed; see the errors above." />
+</Target>
+```
+
+- Pass `$(TargetPath)` so each configuration checks its own output, not a
+  stale Release DLL left by an earlier build.
+- Print each problem in the canonical diagnostic form,
+  `<file>: error <CODE>: <message>`. `Exec` recognises that form, so the
+  problem appears in the build's error list and an IDE's error window
+  with its file. Print nothing else on success, or a one-line summary.
+- `IgnoreExitCode` plus an `Error` task gives one clear failure message
+  instead of `MSB3073`, and still fails the build.
+- Keep the step cheap (seconds), offer an opt-out property for quick
+  iterations, and use Windows PowerShell 5.1 when the validator reflects
+  over .NET Framework assemblies (see
+  [assembly inspection](../assembly-inspection/overview.knack.md)).
+- Prove it: break one data file on purpose, confirm the build fails with
+  the expected error, then restore the file.
+
 ## Exit Codes and Logs
 
 Check `$LASTEXITCODE` after each native command; PowerShell does not stop on
@@ -151,5 +189,8 @@ instead of a full diagnostic log.
 - [MSBuild command-line reference](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference)
 - [Find MSBuild with vswhere](https://github.com/microsoft/vswhere/wiki/Find-MSBuild)
 - [NuGet pack and restore as MSBuild targets](https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets)
+- [Exec task](https://learn.microsoft.com/en-us/visualstudio/msbuild/exec-task)
+- [MSBuild and Visual Studio format for diagnostic messages](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-diagnostic-format-for-tasks)
+- [Target build order (`AfterTargets`)](https://learn.microsoft.com/en-us/visualstudio/msbuild/target-build-order)
 - [MSBuild binary log documentation](https://github.com/dotnet/msbuild/blob/main/documentation/wiki/Binary-Log.md)
 - [Resolve errors for missing assembly references (CS0012, CS1069)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/assembly-references)
