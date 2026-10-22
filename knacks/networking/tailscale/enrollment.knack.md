@@ -28,8 +28,24 @@ the native client subprocess, then restore the caller's terminal settings
 on success, skip, timeout and interruption. Restoring raw output immediately
 after the opt-in prompt can still corrupt the subsequent native QR display.
 
+First give the interaction a terminal that the installer does not own.
+Anaconda's tmux can reset a shared console to raw mode after an initially
+readable prompt, overriding the application's newline settings. Allocate
+and activate a separate Linux virtual terminal where available, outside
+consoles reserved for installer UI/shell and automatic gettys. Verify the
+switch before redirecting input/output; return and release it on every exit.
+Serial and hypervisor consoles must keep their actual connected channel.
+
+Check utilities in the installation runtime itself. A minimal installer can
+contain `chvt` while omitting `fgconsole`; the installed distribution's
+package contents do not establish availability during early boot. A small
+stdlib helper can use Linux's VT ioctl interface without those commands.
+Bound activation waits and keep restoration independent of mounted media.
+
 Test actual PTY output with translation initially disabled, not only captured
-strings. Check the packaged client in the installer's VGA console and, when
+strings. Boot the actual remastered EFI/USB path, including the installer's
+terminal multiplexer startup; direct-kernel probes can miss timing failures.
+Check the packaged client in the installer's VGA console and, when
 available, decode the QR from its rendered pixels without logging the URL.
 A public synthetic URL is appropriate for generic rendering tests; real
 provider login remains a separate private operator step.

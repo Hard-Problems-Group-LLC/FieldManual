@@ -6,6 +6,14 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- 2026-10-22T00:50:47-07:00 — FM-TASK-011 full-boot correction: documented
+  exclusive console ownership before newline handling. Actual EFI/USB boot
+  exposed tmux takeover and missing runtime fgconsole despite chvt presence.
+  A separate VT outside reserved/getty consoles renders a decodable native
+  QR; forced native failure restores the installer console, releases the VT
+  and removes temporary state. No human login. Earlier direct-kernel proof
+  did not cover the full boot timing and was insufficient for that claim.
+
 - 2026-10-22T00:09:10-07:00 — FM-TASK-011 follow-up: documented raw-console
   newline translation across console prompts and native client output.
   Validation: real PTY translation/restoration, interrupted-child output and
