@@ -20,6 +20,20 @@ server or framebuffer browser. Always show the plain URL too. Serial
 terminals, limited fonts, clipped lines or a camera that cannot scan the
 display must not remove the operator's alternative enrollment path.
 
+A console inherited from an installer or terminal multiplexer can have raw
+output processing: LF moves down without returning to column zero. This
+staircases ordinary text and destroys a text QR code. Temporarily enable
+normal newline translation for the whole enrollment interaction, including
+the native client subprocess, then restore the caller's terminal settings
+on success, skip, timeout and interruption. Restoring raw output immediately
+after the opt-in prompt can still corrupt the subsequent native QR display.
+
+Test actual PTY output with translation initially disabled, not only captured
+strings. Check the packaged client in the installer's VGA console and, when
+available, decode the QR from its rendered pixels without logging the URL.
+A public synthetic URL is appropriate for generic rendering tests; real
+provider login remains a separate private operator step.
+
 For unattended installations, offer a bounded opt-in window before starting
 interactive enrollment. A conspicuous banner can accept one key to begin,
 Esc to skip, and default to skip after a countdown. Keep this offer deadline

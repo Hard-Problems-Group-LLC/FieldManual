@@ -6,6 +6,13 @@ evidence, important decisions or risk acceptances, and follow-up records.
 
 ## Completed
 
+- 2026-10-22T00:09:10-07:00 — FM-TASK-011 follow-up: documented raw-console
+  newline translation across console prompts and native client output.
+  Validation: real PTY translation/restoration, interrupted-child output and
+  a diskless native RHEL-family VGA installer. A QR decoder read the native
+  code from rendered pixels; no human login or URL was recorded. Temporary
+  probe inputs and captures were removed after filtered evidence.
+
 - 2026-10-21T23:30:29-07:00 — FM-TASK-011 follow-up: documented independent
   daemon/client log-directory confinement and recoverable atomic identity
   publication. Added transaction ownership, stopped-state recovery,
