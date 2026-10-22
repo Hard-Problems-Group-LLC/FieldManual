@@ -1,6 +1,6 @@
 # Console Enrollment
 
-Reviewed: 2026-10-21. Verify options with the packaged client's help output.
+Reviewed: 2026-10-22. Verify options with the packaged client's help output.
 
 ## When to Load
 
@@ -78,6 +78,45 @@ an application password as an OAuth substitute, or assume a terminal web
 browser supports the provider's current security requirements. An email
 address may be an optional account hint, but it proves no identity.
 
+## Resolve the Name Before Enrollment
+
+A temporary installer often starts with `localhost`. Set its intended live
+OS hostname before starting the native daemon or requesting an enrollment
+URL. Writing the future target's `/etc/hostname` alone does not rename the
+running installer. Other services that read the kernel hostname can report
+that temporary name too.
+
+Choose the long-term naming policy explicitly. With an empty hostname
+preference, Tailscale derives its name from the OS. An explicit
+`tailscale up --hostname=NAME` or `tailscale set --hostname=NAME` stores an
+override; carrying native state to the installed system also carries that
+preference. A later OS rename does not clear it. The control server may
+normalize the machine name, add a collision suffix or retain an
+administrator's manual name, so the advertised hostname and MagicDNS name
+need not be identical.
+
+Validate names after adding any uniqueness suffix. Linux limits the complete
+kernel hostname to 64 characters and DNS labels to 63. The native client's
+OS-derived host information uses the first DNS label; a suffix placed after
+an FQDN's domain can disappear from the default advertised name. Use the
+actual target's interface identity, not a builder or preview value. Resolve
+an installation-specific name once instead of changing it during retries,
+reauthentication or reboot. If a clock-derived identifier is used, record
+its timezone and whether the clock was synchronized or guessed.
+
+Treat a temporary override as a separate lifecycle. Clear it deliberately
+when the installed OS has the intended hostname, then verify the advertised
+name after refresh/restart. A successful clear of the preference does not
+prove the current backend host information has already been regenerated.
+Renaming does not require logging out or editing private native state JSON.
+
+Verify preference persistence across daemon restart and first successful
+authentication. A successful local `set` before authentication is not proof
+that an authenticated profile exists. Keep an initial naming operation
+retryable until the required native state is established, and preserve later
+deliberate administrator changes. Exercise unauthenticated behavior in a
+disposable guest; actual provider login remains the operator's private step.
+
 ## State and Process Ownership
 
 Use the daemon's real state, not a success-looking line in CLI output.
@@ -141,6 +180,10 @@ to make a failed enrollment look successful.
 ## Sources
 
 - [Up command](https://tailscale.com/docs/reference/tailscale-cli/up)
+- [Machine names](https://tailscale.com/docs/concepts/machine-names)
+- [Native hostname preference, version 1.104.2](https://github.com/tailscale/tailscale/blob/v1.104.2/ipn/prefs.go)
+- [Native host information, version 1.104.2](https://github.com/tailscale/tailscale/blob/v1.104.2/hostinfo/hostinfo.go)
+- [Linux hostname limits](https://www.freedesktop.org/software/systemd/man/latest/hostname.html)
 - [Add a device](https://tailscale.com/docs/features/access-control/device-management/how-to/set-up)
 - [Auth keys](https://tailscale.com/kb/1085/auth-keys)
 - [Ephemeral nodes](https://tailscale.com/docs/features/ephemeral-nodes)
